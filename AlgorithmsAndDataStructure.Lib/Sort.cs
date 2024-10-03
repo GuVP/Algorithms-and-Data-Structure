@@ -12,24 +12,49 @@ public static class Sort
      */
 
 
-    public static int[] BubbleSort(int[] nums)
+    public static int[] BubbleSort(int[] numArray)
     {
-        int length = nums.Length;
-        int aux;
+        int length = numArray.Length;
 
         for(int i = 0; i < length - 1; i++)
         {
             for(int j = 0; j < length - 1 - i; j++)
             {
-                if (nums[j] > nums[j + 1])
+                if (numArray[j] > numArray[j + 1])
                 {
-                    aux = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = aux;
+                    int aux = numArray[j];
+                    numArray[j] = numArray[j + 1];
+                    numArray[j + 1] = aux;
                 }
             }
         }
 
-        return nums;
+        return numArray;
+    }
+
+    public static int[] SelectionSort(int[] num)
+    {
+        int length = num.Length;
+
+        for(int i = 0; i < length; i++)
+        {
+            int min = i;
+            for (int j = i + 1; j < length; j++)
+            {
+                if (num[j] < num[min])
+                {
+                    min = j;
+                }
+            }
+
+            if(min != i)
+            {
+                int aux = num[i];
+                num[i] = num[min];
+                num[min] = aux;
+            }
+        }
+
+        return num;
     }
 }
