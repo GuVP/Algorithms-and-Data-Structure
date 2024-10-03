@@ -11,25 +11,47 @@ public static class Sort
         - QUICK SORT
      */
 
-
-    public static int[] BubbleSort(int[] numArray)
+    public static int[] BubbleSort(int[] num)
     {
-        int length = numArray.Length;
+        int length = num.Length;
 
         for(int i = 0; i < length - 1; i++)
         {
             for(int j = 0; j < length - 1 - i; j++)
             {
-                if (numArray[j] > numArray[j + 1])
+                if (num[j] > num[j + 1])
                 {
-                    int aux = numArray[j];
-                    numArray[j] = numArray[j + 1];
-                    numArray[j + 1] = aux;
+                    int aux = num[j];
+                    num[j] = num[j + 1];
+                    num[j + 1] = aux;
                 }
             }
         }
 
-        return numArray;
+        return num;
+    }
+
+    public static int[] InsertionSort(int[] num)
+    {
+        int length = num.Length;
+        int i = 1;
+
+        while (i < length)
+        {
+            int j = i;
+            int reference = num[i];
+
+            while( j > 0 && num[j-1] > reference)
+            {
+                num[j] = num[j-1];
+                j--;
+            }
+
+            num[j] = reference;
+            i++;
+        }
+
+        return num;
     }
 
     public static int[] SelectionSort(int[] num)
